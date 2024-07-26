@@ -1,0 +1,15 @@
+details: str = "Amir klein, bat Yam"
+print(len(details))
+print(details.upper())
+print(details.lower())
+print(details.startswith(f"The details start with the word {"Amir"}"))
+print(details.endswith(f"The details end with the words {"Bat Yam"}"))
+print(details.split(" "))
+print(details.replace(" ", "*"))
+print(details.split(" "))
+print(details.center (50,"="))
+print(details [3::])
+print(details [:4])
+print(details.replace(" ", "") [::2])
+print(details.title())
+

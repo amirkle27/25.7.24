@@ -23,8 +23,16 @@ capital_list: list[str] = [
     'Kyiv', 'Abu Dhabi', 'London', 'Washington, D.C.', 'Montevideo', 'Tashkent', 'Port Vila', 'Vatican City',
     'Caracas', 'Hanoi', 'Sanaa', 'Lusaka', 'Harare'
 ]
-city: str = random.choice(capital_list)
-for char in city:
-    print(city.replace(char,"_"*len(city)))
+a: str = random.choice(capital_list)
+b: str = len(a)*"_"
+print(b)
+while "_" in b:
+    guess: str = input("Please guess a letter")
 
+    if guess in a:
+        new_b = []
+        for i in range (len(a)):
+            if a[i].lower() == guess.lower():
+                new_b.append(a[i])
+            print(new_b)
 

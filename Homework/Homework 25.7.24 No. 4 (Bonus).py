@@ -23,16 +23,27 @@ capital_list: list[str] = [
     'Kyiv', 'Abu Dhabi', 'London', 'Washington, D.C.', 'Montevideo', 'Tashkent', 'Port Vila', 'Vatican City',
     'Caracas', 'Hanoi', 'Sanaa', 'Lusaka', 'Harare'
 ]
-a: str = random.choice(capital_list)
-b: str = len(a)*"_"
-print(b)
-while "_" in b:
-    guess: str = input("Please guess a letter")
+want = "yes"
+while want.lower == "y" or want == "yes":
+    a: str = random.choice(capital_list)
+    b: str = len(a)*"_"
+    new_a = a.lower ()
+    new_b = list (b)
+    count: int = 5
 
-    if guess in a:
-        new_b = []
-        for i in range (len(a)):
-            if a[i].lower() == guess.lower():
-                new_b.append(a[i])
-            print(new_b)
+    for i in range ((len(a)) + count):
+        guess: str = input("Please guess a letter").lower()
+        if guess in a.lower ():
+            (str) = (new_a.index(guess))
+            loc: int = new_a.index(guess)
+            for j in range (len(new_a)):
+                if new_a[j].lower() == guess.lower():
+                    new_b[j] = new_a[j]
+                    print("Current state: " + "".join(new_b))
+        else:
+            count -= 1
+            print(f"Sorry, wrong guess. you have {count} more tries\nPlease try again: ")
+    if "_" in new_b:
+        print("Sorry, you didn't find the city's name. Hance, Y O U  L O S E !!!")
+    want = (input("Want to play another game?").lower())
 

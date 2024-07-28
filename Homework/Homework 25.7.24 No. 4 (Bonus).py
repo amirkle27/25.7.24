@@ -24,26 +24,28 @@ capital_list: list[str] = [
     'Caracas', 'Hanoi', 'Sanaa', 'Lusaka', 'Harare'
 ]
 want = "yes"
-while want.lower == "y" or want == "yes":
+while want.lower () == "y" or want.lower () == "yes":
     a: str = random.choice(capital_list)
     b: str = len(a)*"_"
     new_a = a.lower ()
     new_b = list (b)
     count: int = 5
-
-    for i in range ((len(a)) + count):
+    print("Welcoe to the City Guessing Game!")
+    while "_" in new_b and not count == 0:
         guess: str = input("Please guess a letter").lower()
-        if guess in a.lower ():
-            (str) = (new_a.index(guess))
-            loc: int = new_a.index(guess)
-            for j in range (len(new_a)):
+        for j in range(len(new_a)):
+            if guess in a.lower ():
+                (str) = (new_a.index(guess))
                 if new_a[j].lower() == guess.lower():
                     new_b[j] = new_a[j]
-                    print("Current state: " + "".join(new_b))
-        else:
+                    print("Correct! \nCurrent state: " + "".join(new_b))
+        if not "_" in new_b:
+            break
+        if not guess in a.lower():
             count -= 1
             print(f"Sorry, wrong guess. you have {count} more tries\nPlease try again: ")
     if "_" in new_b:
-        print("Sorry, you didn't find the city's name. Hance, Y O U  L O S E !!!")
+        print(f"Sorry, the city's name was: {a}. \nSadly, you didn't find it. Hance, Y O U  L O S E !!!")
+    else:
+        print("WOW! You found the city's name successfully! You must be a Genius!")
     want = (input("Want to play another game?").lower())
-
